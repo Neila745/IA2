@@ -60,7 +60,7 @@ public class GUI_test extends JFrame implements ActionListener {
 
 
         question = new JTextField ();
-        question.setBounds(10, 90, 100, 40);
+        question.setBounds(10, 390, 100, 40);
         frame.getContentPane().add(question);
         frame.setVisible(true);
 

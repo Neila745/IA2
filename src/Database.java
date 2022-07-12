@@ -34,12 +34,14 @@ public class Database {
         return records;
     }
     public String getRecord(int rowNumber) {
+
         return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
     }
-    public boolean findRecord(String filename,String data) {
+
+    public void findRecord(String filename,String data) throws IOException {
         // search for a record matching data
         // return true if found
-        int i=0;
+       /* int i=0;
         while (i<filename.length()){
             if(filename.equals(data)){
                 System.out.println("true");
@@ -49,22 +51,23 @@ public class Database {
         }
         System.out.println("false");
         return false;
-
-
-        boolean found=false;  // flag for target txt being present
-        try(BufferedReader br=new BufferedReader(new FileReader(file))){
+*/
+        boolean found=false;
+        try(BufferedReader br=new BufferedReader(new FileReader(filename))){
             String line;
-            while((line=br.readLine())!=null)  // classic way of reading a file line-by-line
-                if(line.equals("something")){
-                    found=true;
-                    break;  // if the text is present, we do not have to read the rest after all
-                }
-        } catch(FileNotFoundException | IOException fnfe){}
+            while((line=br.readLine())!=null)
+                if(line.equals(data) && line!= "!"){//TODO: COMMAR NEEDED + NOT ALREADY THERE
 
-        if(!found){  // if the text is not found, it has to be written
-            try(PrintWriter pw=new PrintWriter(new FileWriter(file,true))){  // it works with
-                // non-existing files too
-                bw.println("something");
+                    found=true;
+                    break;
+                }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        if(!found){
+            try(PrintWriter pw=new PrintWriter(new FileWriter(filename,true))){
+                pw.println(data);
             }
         }
     }
