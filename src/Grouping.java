@@ -19,7 +19,7 @@ public class Grouping{
     //ArrayList<String> questions = new ArrayList<>();
     //ArrayList<String> marks = new ArrayList<>();
     // take the test length and topic
-    public void Grouping(){
+    public Grouping(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Please Enter Minimum Marks For Question: ");
         minMarksInput = sc.nextInt();

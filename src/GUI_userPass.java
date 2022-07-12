@@ -42,7 +42,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
     }
 
     public void verify(){
-        Database myDatabaseTwo = new Database("userPass.txt");
+        Database myDatabaseTwo = new Database("userPass.txt",100);
 //TODO: create login GUI class
         System.out.println("name= " +enterUser.getText());
         User u = new User(enterUser.getText(), enterPass.getText());

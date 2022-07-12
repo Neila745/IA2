@@ -15,6 +15,8 @@ public class GUI_test extends JFrame implements ActionListener {
     private JLabel  minTitle;
     private JLabel  maxTitle;
     private JButton button;
+    private JButton button2;
+    private JTextField question;
 
 
 
@@ -51,18 +53,26 @@ public class GUI_test extends JFrame implements ActionListener {
         button.setBounds(10,290,100,40);
         button.addActionListener(this);
         frame.getContentPane().add(button);
+        button2 = new JButton("Close");
+        button2.setBounds(150,290,100,40);
+        button2.addActionListener(this);
+        frame.getContentPane().add(button2);
+
+
+        question = new JTextField ();
+        question.setBounds(10, 90, 100, 40);
+        frame.getContentPane().add(question);
         frame.setVisible(true);
 
     }
 
     public void testMethod(){
-        Database myDatabase = new Database("input.txt");
-        Grouping g = new Grouping();
-        g.Grouping();
-        String topic =g.getInputTopic();
-        int minMarks = g.getInputMinMarks();
-        int maxMarks = g.getInputMaxMarks();
-        QuestionSet testSet = new QuestionSet(myDatabase,topic,minMarks,maxMarks);
+        Database myDatabase = new Database("input.txt",100);
+        //Grouping g = new Grouping();
+        String topic =entertopic.getText();
+        int minMark = Integer.parseInt(minMarks.getText());
+        int maxMark = Integer.parseInt(maxMarks.getText());
+        QuestionSet testSet = new QuestionSet(myDatabase,topic,minMark,maxMark);
         testSet.display();
     }
 

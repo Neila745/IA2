@@ -6,8 +6,8 @@
 //display markscheme method
 public class ExamGenerator{
     public ExamGenerator(){
-        Database myDatabase = new Database("input.txt");
-        Database myDatabaseTwo = new Database("userPass.txt");/*
+        Database myDatabase = new Database("input.txt",100);
+        Database myDatabaseTwo = new Database("userPass.txt",100);/*
 //TODO: create login GUI class
 
       User u = new User();

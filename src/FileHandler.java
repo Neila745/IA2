@@ -2,10 +2,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
 //imports for writing
 import java.io.PrintWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.io.RandomAccessFile;
+
 public class FileHandler{
 
     public static ArrayList<String> xreadFromFile(String fileName) {
@@ -48,9 +51,13 @@ public class FileHandler{
         }
     }
 
-    public void appendLine(String fileName, String data){
-        xwriteToFile(fileName,data,true);
-    }
+    /*public void appendLine(String fileName, String data){
+        if (findRecord(fileName) ==true){
+            xwriteToFile(fileName,data,true);
+        }else{
+            System.out.println("Question already exists");
+        }
+    }*/
 
     public int countLines(String fileName){
         try (
@@ -72,6 +79,18 @@ public class FileHandler{
         }
     }
 
+
+    public static String readLineAt(String fileName, int start) {
+        // grab the line from position "start" in the file
+        try (RandomAccessFile rf = new RandomAccessFile(fileName, "rws")) {
+            rf.seek(start);
+            return rf.readLine();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     //TODO: why dont i have an output file? should i add it? how to add it?
     //TODO: difference between RandomRead vs this one? should i add it?
     //TODO: (IF CHANGING TO RANDOMREAD) readLineAt(String fileName, int start)
