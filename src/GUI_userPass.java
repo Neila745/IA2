@@ -51,6 +51,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
         String password =u.getInputPass();
 
         userPassVerification verified = new userPassVerification(myDatabaseTwo, username, password);
+
     }
 
     @Override

@@ -16,7 +16,6 @@ public class GUI_test extends JFrame implements ActionListener {
     private JLabel  maxTitle;
     private JButton button;
     private JButton button2;
-    private JTextField question;
 
 
 
@@ -59,9 +58,6 @@ public class GUI_test extends JFrame implements ActionListener {
         frame.getContentPane().add(button2);
 
 
-        question = new JTextField ();
-        question.setBounds(10, 390, 100, 40);
-        frame.getContentPane().add(question);
         frame.setVisible(true);
 
     }
@@ -80,6 +76,7 @@ public class GUI_test extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Enter")) {
             testMethod();
+            GUI_GeneratedExam GE = new GUI_GeneratedExam(400,400);
 
         }else if(e.getActionCommand().equals("Cancel")){
             minTitle.setText("");

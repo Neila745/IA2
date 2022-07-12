@@ -56,7 +56,7 @@ public class Database {
         try(BufferedReader br=new BufferedReader(new FileReader(filename))){
             String line;
             while((line=br.readLine())!=null)
-                if(line.equals(data) && line!= "!"){//TODO: COMMAR NEEDED + NOT ALREADY THERE
+                if(line.equals(data) && data == ","){//TODO: COMMAR NEEDED + NOT ALREADY THERE
 
                     found=true;
                     break;
