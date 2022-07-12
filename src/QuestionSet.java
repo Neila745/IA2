@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class QuestionSet{
-    private ArrayList <Question> questions;
+    public static ArrayList <Question> questions;
 
     public QuestionSet(Database db, String topic, int minMarks, int maxMarks){
         questions = new ArrayList<>();

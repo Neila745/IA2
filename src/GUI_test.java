@@ -69,7 +69,6 @@ public class GUI_test extends JFrame implements ActionListener {
         int minMark = Integer.parseInt(minMarks.getText());
         int maxMark = Integer.parseInt(maxMarks.getText());
         QuestionSet testSet = new QuestionSet(myDatabase,topic,minMark,maxMark);
-        testSet.display();
     }
 
     @Override
