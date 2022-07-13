@@ -62,20 +62,21 @@ public class GUI_test extends JFrame implements ActionListener {
 
     }
 
-    public void testMethod(){
+    public QuestionSet testMethod(){
         Database myDatabase = new Database("input.txt",100);
         //Grouping g = new Grouping();
         String topic =entertopic.getText();
         int minMark = Integer.parseInt(minMarks.getText());
         int maxMark = Integer.parseInt(maxMarks.getText());
         QuestionSet testSet = new QuestionSet(myDatabase,topic,minMark,maxMark);
+        return testSet;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Enter")) {
             testMethod();
-            GUI_GeneratedExam GE = new GUI_GeneratedExam(400,400);
+            GUI_GeneratedExam GE = new GUI_GeneratedExam(400,400,testMethod());
 
         }else if(e.getActionCommand().equals("Cancel")){
             minTitle.setText("");

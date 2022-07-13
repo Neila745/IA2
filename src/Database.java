@@ -38,40 +38,22 @@ public class Database {
         return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
     }
 
-    public void findRecord(String filename,String data) throws IOException {
-        // search for a record matching data
-        // return true if found
-       /* int i=0;
-        while (i<filename.length()){
-            if(filename.equals(data)){
-                System.out.println("true");
-                return true;
-            }
-            i++;
-        }
-        System.out.println("false");
-        return false;
-*/
+    public boolean findQuestion(String data) {
         boolean found=false;
-        try(BufferedReader br=new BufferedReader(new FileReader(filename))){
-            String line;
-            while((line=br.readLine())!=null)
-                if(line.equals(data) && data == ","){//TODO: COMMAR NEEDED + NOT ALREADY THERE
-
-                    found=true;
-                    break;
-                }
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-
-        if(!found){
-            try(PrintWriter pw=new PrintWriter(new FileWriter(filename,true))){
-                pw.println(data);
+        int counter= 0;
+        while (!found && counter<records.size()) {
+            Question q = new Question(records.get(counter));
+            if (q.getText().equals(data)) {//TODO: COMMA NEEDED + NOT ALREADY THERE
+                found = true;
             }
+            counter++;
         }
+        return found;
     }
-
+    public void addRecord(String record){
+        FileHandler.xwriteToFile(filename, record, true);
+        records.add(record);
+    }
 
 
     //TODO: appendRecord(String data)

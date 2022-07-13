@@ -36,7 +36,7 @@ public class FileHandler{
             return null;
         }
     }
-    public void xwriteToFile(String fileName, String text, boolean append) {
+    public static void xwriteToFile(String fileName, String text, boolean append) {
         // to write to the file
         // append: true= add to end, false= overwrite
 
@@ -59,7 +59,7 @@ public class FileHandler{
         }
     }*/
 
-    public int countLines(String fileName){
+    public static int countLines(String fileName){
         try (
                 FileReader fr = new FileReader(fileName);
                 BufferedReader br = new BufferedReader(fr);)
