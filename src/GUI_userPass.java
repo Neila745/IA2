@@ -59,7 +59,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Enter")) {
             verify();
 
-        }else if(e.getActionCommand().equals("Cancel")){
+        }else if (e.getActionCommand().equals("Close")) {
             enterUser.setText("");
             enterPass.setText("");
         }
