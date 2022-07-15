@@ -45,16 +45,20 @@ public class Database {
             Question q = new Question(records.get(counter));
             if (q.getText().equals(data)) {//TODO: COMMA NEEDED + NOT ALREADY THERE
                 found = true;
+                GUI_Error_Database ed = new GUI_Error_Database();
             }
             counter++;
         }
         return found;
     }
-    public void addRecord(String record){
-        FileHandler.xwriteToFile(filename, record, true);
-        records.add(record);
-    }
 
+    public void addRecord(String topic, String data, int marks) {
+        if (findQuestion(data) == false){
+            System.out.println("");
+            FileHandler.xwriteToFile(filename,  topic + ", " + data + ", " + marks, true);
+            records.add(topic + ", " + data + ", " + marks);
+        }
+    }
 
     //TODO: appendRecord(String data)
     //TODO: deleteRecord()

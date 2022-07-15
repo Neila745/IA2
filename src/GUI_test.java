@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -58,15 +57,11 @@ public class GUI_test extends JFrame implements ActionListener {
         button2.addActionListener(this);
         frame.getContentPane().add(button2);
         button3 = new JButton("Home Page");
-        button3.setBounds(0, 10, 266, 40);
+        button3.setBounds(0, 10, 400, 40);
         button3.addActionListener(this);
         frame.getContentPane().add(button3);
-        button4 = new JButton("Exam Generator");
-        button4.setBounds(266, 10, 266, 40);
-        button4.addActionListener(this);
-        frame.getContentPane().add(button4);
         button5 = new JButton("Database");
-        button5.setBounds(531, 10, 265, 40);
+        button5.setBounds(400, 10, 400, 40);
         button5.addActionListener(this);
         frame.getContentPane().add(button5);
 
@@ -81,14 +76,16 @@ public class GUI_test extends JFrame implements ActionListener {
         int minMark = Integer.parseInt(minMarks.getText());
         int maxMark = Integer.parseInt(maxMarks.getText());
         QuestionSet testSet = new QuestionSet(myDatabase, topic, minMark, maxMark);
+
         return testSet;
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Enter")) {
             testMethod();
-            GUI_GeneratedExam GE = new GUI_GeneratedExam(400, 400, testMethod());
+            GUI_GeneratedExam GE = new GUI_GeneratedExam(400, 400);
 
         } else if (e.getActionCommand().equals("Close")) {
             minMarks.setText("");
@@ -96,9 +93,6 @@ public class GUI_test extends JFrame implements ActionListener {
             entertopic.setText("");
         } else if (e.getActionCommand().equals("Home Page")) {
             GUI_test gt = new GUI_test(400, 400);
-        }else if (e.getActionCommand().equals("Exam Generator")) {
-            testMethod();
-            GUI_GeneratedExam GE = new GUI_GeneratedExam(400, 400, testMethod());//TODO: NOT WORKING
         }else if (e.getActionCommand().equals("Database")) {
             GUI_Database db = new GUI_Database(400, 400);
         }

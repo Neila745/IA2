@@ -21,9 +21,11 @@ public class Question{
         return marks;
     }
     public String getTopic(){
+
         return topic;
     }
     public String getText(){
+
         return questionText;
     }
 
