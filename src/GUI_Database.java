@@ -69,7 +69,7 @@ public class GUI_Database extends JFrame implements ActionListener {
 
     public void questions() {
 
-        Question q = new Question(Integer.parseInt(marksText.getText()), questionText.getText(), topicText.getText());
+        Question q = new Question((marksText.getText()), questionText.getText(), topicText.getText());
         String topic = q.getTopic();
         String data = q.getText();
         int marks = Integer.parseInt(String.valueOf(q.getMarks()));
