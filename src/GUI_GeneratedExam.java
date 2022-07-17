@@ -1,8 +1,6 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class GUI_GeneratedExam {
 
@@ -10,6 +8,7 @@ public class GUI_GeneratedExam {
     private JLabel paper;
     private JButton generateExam;
     private JTextArea textArea;
+    private static ArrayList <Question> questions;
 
 
     public GUI_GeneratedExam(int width, int height, QuestionSet questions) {
@@ -20,21 +19,25 @@ public class GUI_GeneratedExam {
         frame.setLayout(null);
         paper = new JLabel("Exam");
         paper.setBounds(10, 10, 400, 40);
-        frame.getContentPane().add(paper);
-        QuestionSet qs = new QuestionSet();
+        //frame.getContentPane().add(paper);
 
-        List<Object> objects2 = Arrays.asList(getArray());
-        ArrayList<QuestionSet> arrayList = new ArrayList<QuestionSet>(Collections.singleton(gt.testMethod()));
-        String[] str = new String[arrayList.size()];
-        JList<String> list = new JList<>(arrayList.toArray(str));
-        list.setBounds(100,100, 75,75);
-        JScrollPane scrollPane = new JScrollPane(list);
-        frame.getContentPane().add(scrollPane);
+        GUI_test gt = new GUI_test(400,400);
+        TextField tf= new TextField(display());
+        tf.setBounds(0,0, 700,400);
 
-        //frame.getContentPane().add(scrollPane);
+        frame.getContentPane().add(tf);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
+    }
+
+    public String display() {
+        String q = null;
+        for (int i = 0; i < questions.size(); i++) {
+            q = questions.get(i).getText();
+        }
+        return q;
     }
 }

@@ -1,22 +1,22 @@
 import java.util.ArrayList;
-public class QuestionSet{
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;public class QuestionSet{
     public static ArrayList <Question> questions;
 
-    public QuestionSet(Database db, String topic, String minMarks, String maxMarks){
+    public QuestionSet(Database db, String topic, int minMarks, int maxMarks){
         questions = new ArrayList<>();
         ArrayList <String> records = db.getRecords();
         for (int i=0; i<records.size(); i++){
             Question q = new Question(records.get(i));
-            if (q.getTopic().equals(topic) && q.getMarks().equals(minMarks) && q.getMarks().equals(maxMarks)){
+            if (q.getTopic().equals(topic) && q.getMarks()>=minMarks && q.getMarks()<=maxMarks){
                 questions.add(q);
 
             }
         }
     }
 
-    public ArrayList<Question> getArray(){
-        return questions;
-    }
 
 
     public void display(){

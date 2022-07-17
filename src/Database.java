@@ -38,7 +38,7 @@ public class Database {
         return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
     }
 
-    public boolean findQuestion(String data) {
+   public boolean findQuestion(String data) {
         boolean found=false;
         int counter= 0;
         while (!found && counter<records.size()) {
