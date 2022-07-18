@@ -19,6 +19,7 @@ public class userPassVerification{
         }else{
             System.out.println("Incorrect details");
             loggedIn=false;
+            GUI_UserPass_Error e = new GUI_UserPass_Error();
         }
     }
 

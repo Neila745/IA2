@@ -1,6 +1,9 @@
 import java.util.ArrayList;
-public class QuestionSet{
-    private ArrayList <Question> questions;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;public class QuestionSet{
+    public static ArrayList <Question> questions;
 
     public QuestionSet(Database db, String topic, int minMarks, int maxMarks){
         questions = new ArrayList<>();
@@ -9,9 +12,11 @@ public class QuestionSet{
             Question q = new Question(records.get(i));
             if (q.getTopic().equals(topic) && q.getMarks()>=minMarks && q.getMarks()<=maxMarks){
                 questions.add(q);
+
             }
         }
     }
+
 
 
     public void display(){

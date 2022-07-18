@@ -10,8 +10,8 @@ import java.util.ArrayList;
 //import for user input
 import java.util.Scanner;
 public class Grouping{
-    public int minMarksInput;
-    public int maxMarksInput;
+    public String minMarksInput;
+    public String maxMarksInput;
     public String topic;
     public String question;
     //ArrayList<String> binary = new ArrayList<>();
@@ -22,10 +22,10 @@ public class Grouping{
     public Grouping(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Please Enter Minimum Marks For Question: ");
-        minMarksInput = sc.nextInt();
+        minMarksInput = sc.nextLine();
         Scanner sc2 = new Scanner(System.in);
         System.out.println("Please Enter Maximum Marks For Question: ");
-        maxMarksInput = sc2.nextInt();
+        maxMarksInput = sc2.nextLine();
         Scanner sc3 = new Scanner(System.in);
         System.out.println("Please Enter A Topic: ");
         topic = sc3.nextLine();
@@ -40,11 +40,11 @@ public class Grouping{
     public String getInputTopic(){
         return topic;
     }
-    public int getInputMinMarks(){
+    public String getInputMinMarks(){
         return minMarksInput;
     }
 
-    public int getInputMaxMarks(){
+    public String getInputMaxMarks(){
         return maxMarksInput;
     }
 

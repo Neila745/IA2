@@ -34,42 +34,31 @@ public class Database {
         return records;
     }
     public String getRecord(int rowNumber) {
+
         return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
     }
-    public boolean findRecord(String filename,String data) {
-        // search for a record matching data
-        // return true if found
-        int i=0;
-        while (i<filename.length()){
-            if(filename.equals(data)){
-                System.out.println("true");
-                return true;
+
+   public boolean findQuestion(String data) {
+        boolean found=false;
+        int counter= 0;
+        while (!found && counter<records.size()) {
+            Question q = new Question(records.get(counter));
+            if (q.getText().equals(data)) {//TODO: COMMA NEEDED + NOT ALREADY THERE
+                found = true;
+                GUI_Error_Database ed = new GUI_Error_Database();
             }
-            i++;
+            counter++;
         }
-        System.out.println("false");
-        return false;
-
-
-        boolean found=false;  // flag for target txt being present
-        try(BufferedReader br=new BufferedReader(new FileReader(file))){
-            String line;
-            while((line=br.readLine())!=null)  // classic way of reading a file line-by-line
-                if(line.equals("something")){
-                    found=true;
-                    break;  // if the text is present, we do not have to read the rest after all
-                }
-        } catch(FileNotFoundException | IOException fnfe){}
-
-        if(!found){  // if the text is not found, it has to be written
-            try(PrintWriter pw=new PrintWriter(new FileWriter(file,true))){  // it works with
-                // non-existing files too
-                bw.println("something");
-            }
-        }
+        return found;
     }
 
-
+    public void addRecord(String topic, String data, int marks) {
+        if (findQuestion(data) == false){
+            System.out.println("");
+            FileHandler.xwriteToFile(filename,  topic + ", " + data + ", " + marks, true);
+            records.add(topic + ", " + data + ", " + marks);
+        }
+    }
 
     //TODO: appendRecord(String data)
     //TODO: deleteRecord()

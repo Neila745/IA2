@@ -10,6 +10,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
     private JTextField enterUser;
     private JPasswordField enterPass;
     private JButton button;
+    private JButton button2;
 
     public GUI_userPass() {
         frame = new JFrame("userPass");
@@ -32,9 +33,10 @@ public class GUI_userPass extends JFrame implements ActionListener {
         button.setBounds(50,180,100,40);
         button.addActionListener(this);
         frame.getContentPane().add(button);
-        button = new JButton("Close");
-        button.setBounds(170,180,100,40);
-        frame.getContentPane().add(button);
+        button2 = new JButton("Close");
+        button2.setBounds(170,180,100,40);
+        button2.addActionListener(this);
+        frame.getContentPane().add(button2);
 
         frame.setVisible(true);
         System.out.println("GUI ready");
@@ -51,6 +53,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
         String password =u.getInputPass();
 
         userPassVerification verified = new userPassVerification(myDatabaseTwo, username, password);
+
     }
 
     @Override
@@ -58,7 +61,7 @@ public class GUI_userPass extends JFrame implements ActionListener {
         if (e.getActionCommand().equals("Enter")) {
             verify();
 
-        }else if(e.getActionCommand().equals("Cancel")){
+        }else if (e.getActionCommand().equals("Close")) {
             enterUser.setText("");
             enterPass.setText("");
         }

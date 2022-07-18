@@ -1,11 +1,16 @@
+import java.io.IOException;
+
 class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+
         System.out.println("IA");
         //Database
-        Database db= new Database("userPass.txt", 100);
-        db.findRecord("userPass.txt", "userd");
+        Database db= new Database("input.txt", 100);
+        db.findQuestion("cQuestion");
         //ExamGenerator EG = new ExamGenerator();
         //EG.ExamGenerator();
+
         //QuestionSet(myDatabase, "Binaryuserd Search", 1, 100);
         System.out.println("Starting.");
         GUI_userPass gui = new GUI_userPass();
