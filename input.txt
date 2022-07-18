@@ -10,6 +10,3 @@ Bubble sort, eQuestion, 1
 Bubble sort, fQuestion, 7
 Bubble sort, gQuestion, 8
 Bubble sort, hQuestion, 3
-aerwt, efr, 3
-zsa, fesr, 3
-

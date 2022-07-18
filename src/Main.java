@@ -7,7 +7,7 @@ class Main {
         System.out.println("IA");
         //Database
         Database db= new Database("input.txt", 100);
-        db.findQuestion("cQuestion");
+        //db.findQuestion("cQuestion");
         //ExamGenerator EG = new ExamGenerator();
         //EG.ExamGenerator();
 

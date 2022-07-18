@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//todo: summer- put both home and database onto one frame and make each one visible or invisible
 // provides a way to create new graph pop-ups
 public class GUI_test extends JFrame implements ActionListener {
 
@@ -97,8 +97,6 @@ public class GUI_test extends JFrame implements ActionListener {
             minMarks.setText("");
             maxMarks.setText("");
             entertopic.setText("");
-        } else if (e.getActionCommand().equals("Home Page")) {
-            GUI_test gt = new GUI_test(400, 400);
         }else if (e.getActionCommand().equals("Database")) {
             GUI_Database db = new GUI_Database(400, 400);
 

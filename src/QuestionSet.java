@@ -10,10 +10,11 @@ import java.util.List;public class QuestionSet{
         ArrayList <String> records = db.getRecords();
         for (int i=0; i<records.size(); i++){
             Question q = new Question(records.get(i));
-            if (q.getTopic().equals(topic) && q.getMarks()>=minMarks && q.getMarks()<=maxMarks){
-                questions.add(q);
-
+            if (!q.getTopic().equals(topic) || q.getMarks() < minMarks || q.getMarks() > maxMarks) {
+                continue;
             }
+            questions.add(q);
+
         }
     }
 
@@ -23,7 +24,7 @@ import java.util.List;public class QuestionSet{
         String allQuestions= "";
         for (int i = 0; i < questions.size(); i++) {
             System.out.println(questions.get(i).getText());
-            allQuestions = allQuestions + questions.get(i).getText() +"\n";
+            allQuestions = allQuestions + questions.get(i).getText() + "\n";
         }
         return allQuestions;
     }

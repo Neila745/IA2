@@ -78,6 +78,7 @@ public class GUI_Database extends JFrame implements ActionListener {
         frame.getContentPane().add(databaseText);
         frame.setVisible(true);
 
+
     }
 
 
