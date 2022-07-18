@@ -1,17 +1,22 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
-public class GUI_GeneratedExam {
+public class GUI_GeneratedExam extends JFrame implements ActionListener {
 
     private JFrame frame;
     private JLabel paper;
     private JButton generateExam;
     private JTextArea textArea;
-    private static ArrayList <Question> questions;
+    private QuestionSet questions;
 
 
     public GUI_GeneratedExam(int width, int height, QuestionSet questions) {
+        this.questions = questions;
         // initialise the window
         frame = new JFrame("userPass");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,23 +26,30 @@ public class GUI_GeneratedExam {
         paper.setBounds(10, 10, 400, 40);
         //frame.getContentPane().add(paper);
 
-        GUI_test gt = new GUI_test(400,400);
-        TextField tf= new TextField(display());
-        tf.setBounds(0,0, 700,400);
-
-        frame.getContentPane().add(tf);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        generateExam = new JButton("Generate Exam");
+        generateExam.setBounds(0, 10, 400, 40);
+        generateExam.addActionListener(this);
+        frame.getContentPane().add(generateExam);
         frame.setVisible(true);
 
     }
 
-    public String display() {
-        String q = null;
-        for (int i = 0; i < questions.size(); i++) {
-            q = questions.get(i).getText();
+    private void displayDatabase(){
+            textArea = new JTextArea(questions.display());
+            textArea.setBounds(400,200, 300,300);
+            frame.getContentPane().add(textArea);
+            textArea.requestFocus();
+            frame.setVisible(true);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("Generate Exam")) {
+            displayDatabase();
         }
-        return q;
     }
 }

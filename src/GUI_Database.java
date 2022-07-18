@@ -93,7 +93,7 @@ public class GUI_Database extends JFrame implements ActionListener {
         Database db = new Database("input.txt", 100);
         //db.addRecord(topic, data, marks);//TODO: WHY WONT PRINT ON NEW LINE
     }
-    private void Calculate(String filename) throws IOException {
+    private void displayDatabase(String filename) throws IOException {
         //TODO: //filehandling in GUI?    //only appears why button is pressed?
         try
         {
@@ -149,7 +149,7 @@ public class GUI_Database extends JFrame implements ActionListener {
             }
         } else if (e.getActionCommand().equals("DATA2")){
             try {
-                Calculate("input.txt");
+                displayDatabase("input.txt");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

@@ -19,13 +19,14 @@ import java.util.List;public class QuestionSet{
 
 
 
-    public void display(){
-        for(int i=0; i<questions.size(); i++){
+    public String display() {
+        String Questions = null;
+        for (int i = 0; i < questions.size(); i++) {
             System.out.println(questions.get(i).getText());
+            Questions = questions.get(i).getText();
         }
+        return Questions;
     }
-
-
 }
 
 //new class= set of question- filters(topics, max marks/ min marks)
