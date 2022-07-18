@@ -1,10 +1,6 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class GUI_GeneratedExam extends JFrame implements ActionListener {
 
@@ -28,22 +24,20 @@ public class GUI_GeneratedExam extends JFrame implements ActionListener {
 
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
         generateExam = new JButton("Generate Exam");
         generateExam.setBounds(0, 10, 400, 40);
         generateExam.addActionListener(this);
         frame.getContentPane().add(generateExam);
+        textArea = new JTextArea();
+        textArea.setBounds(200,200, 300,300);
+        frame.getContentPane().add(textArea);
         frame.setVisible(true);
-
     }
 
     private void displayDatabase(){
-            textArea = new JTextArea(questions.display());
-            textArea.setBounds(400,200, 300,300);
-            frame.getContentPane().add(textArea);
-            textArea.requestFocus();
-            frame.setVisible(true);
-
+            textArea.setText(questions.getText());
+            //frame.setVisible(true);
+            //frame.repaint();
     }
 
     @Override

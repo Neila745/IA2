@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 import java.io.*;
@@ -19,11 +18,11 @@ public class GUI_Database extends JFrame implements ActionListener {
     private JButton button5;
     private JButton Buttonf;
     private JButton Buttonh;
-    private JTextArea JTextArea1;
+    private JTextArea databaseText;
 
 
     public GUI_Database(int width, int height) {
-        frame = new JFrame("userPass");
+        frame = new JFrame("Database");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(0, 0, 800, 600);
         frame.setLayout(null);
@@ -50,7 +49,7 @@ public class GUI_Database extends JFrame implements ActionListener {
         topicText.addActionListener(this);
         frame.getContentPane().add(topicText);
 
-        button1 = new JButton("Enter");
+        button1 = new JButton("Add Q");
         button1.setBounds(10, 330, 100, 40);
         button1.addActionListener(this);
         frame.getContentPane().add(button1);
@@ -58,7 +57,7 @@ public class GUI_Database extends JFrame implements ActionListener {
         Buttonf.setBounds(10, 500, 100, 40);
         Buttonf.addActionListener(this);
         frame.getContentPane().add(Buttonf);
-        Buttonh = new JButton("DATA2");
+        Buttonh = new JButton("Reload");
         Buttonh.setBounds(10, 400, 100, 40);
         Buttonh.addActionListener(this);
         frame.getContentPane().add(Buttonh);
@@ -74,9 +73,9 @@ public class GUI_Database extends JFrame implements ActionListener {
         button5.setBounds(400, 10, 400, 40);
         button5.addActionListener(this);
         frame.getContentPane().add(button5);
-        JTextArea1 = new JTextArea("text");
-        JTextArea1.setBounds(400, 50, 400, 500);
-        frame.getContentPane().add(JTextArea1);
+        databaseText = new JTextArea("text");
+        databaseText.setBounds(400, 50, 400, 500);
+        frame.getContentPane().add(databaseText);
         frame.setVisible(true);
 
     }
@@ -85,30 +84,23 @@ public class GUI_Database extends JFrame implements ActionListener {
 
 
     public void questions() {
-
+        if (!marksText.getText().equals("")){
         Question q = new Question((Integer.parseInt(marksText.getText())), questionText.getText(), topicText.getText());
         String topic = q.getTopic();
         String data = q.getText();
         int marks = Integer.parseInt(String.valueOf(q.getMarks()));
         Database db = new Database("input.txt", 100);
-        //db.addRecord(topic, data, marks);//TODO: WHY WONT PRINT ON NEW LINE
-    }
-    private void displayDatabase(String filename) throws IOException {
-        //TODO: //filehandling in GUI?    //only appears why button is pressed?
-        try
-        {
-            FileReader fr = new FileReader(filename);
-            BufferedReader br = new BufferedReader(fr);
-            JTextArea1.read(br, "jTextArea");
-            br = new BufferedReader(new FileReader(String.valueOf(fr)));
-            System.out.println(br.readLine());
-            br.close();
-            JTextArea1.requestFocus();
-        }catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+        db.addRecord(topic, data, marks);
         }
+    }
+    private void displayDatabase(String filename) {
+        //TODO: //filehandling in GUI?    //only appears why button is pressed?
+        ArrayList<String> dbText = FileHandler.xreadFromFile(filename);
+        String allText ="";
+        for(int i=0; i<dbText.size();i++){
+            allText = allText + dbText.get(i) + "\n";
+        }
+        databaseText.setText(allText);
     }
 /*String filename="input.txt";
             try {
@@ -124,7 +116,7 @@ public class GUI_Database extends JFrame implements ActionListener {
     }*/
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Enter")) {
+        if (e.getActionCommand().equals("Add Q")) {//todo: grey out button
             questions();
 
         }else if (e.getActionCommand().equals("Close")) {
@@ -139,24 +131,20 @@ public class GUI_Database extends JFrame implements ActionListener {
             try {
                 FileReader reader = new FileReader(filename);
                 BufferedReader br = new BufferedReader(reader);
-                JTextArea1.read(br, null);
+                databaseText.read(br, null);
                 br.close();
-                JTextArea1.requestFocus();
+                databaseText.requestFocus();
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-        } else if (e.getActionCommand().equals("DATA2")){
-            try {
-                displayDatabase("input.txt");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+        } else if (e.getActionCommand().equals("Reload")){
+            displayDatabase("input.txt");
         } else if (e.getActionCommand().equals("Home Page")) {
             GUI_test gt = new GUI_test(400, 400);
         }else if (e.getActionCommand().equals("Database")) {
-            GUI_Database db = new GUI_Database(400, 400);
+            //GUI_Database db = new GUI_Database(400, 400);
         }
     }
 }

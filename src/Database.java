@@ -55,7 +55,7 @@ public class Database {
     public void addRecord(String topic, String data, int marks) {
         if (findQuestion(data) == false){
             System.out.println("");
-            FileHandler.xwriteToFile(filename,  topic + ", " + data + ", " + marks, true);
+            FileHandler.xwriteToFile(filename,  topic + ", " + data + ", " + marks +"\n",  true );
             records.add(topic + ", " + data + ", " + marks);
         }
     }

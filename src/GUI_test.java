@@ -73,8 +73,14 @@ public class GUI_test extends JFrame implements ActionListener {
         Database myDatabase = new Database("input.txt", 100);
         //Grouping g = new Grouping();
         String topic = entertopic.getText();
-        int minMark = Integer.parseInt(minMarks.getText());
-        int maxMark = Integer.parseInt(maxMarks.getText());
+        int minMark=0;
+        int maxMark=100;
+        if(!minMarks.getText().equals("")) {
+             minMark = Integer.parseInt(minMarks.getText());
+        }
+        if(!maxMarks.getText().equals("")) {
+             maxMark = Integer.parseInt(maxMarks.getText());
+        }
         QuestionSet testSet = new QuestionSet(myDatabase, topic, minMark, maxMark);
 
         return testSet;
@@ -95,6 +101,8 @@ public class GUI_test extends JFrame implements ActionListener {
             GUI_test gt = new GUI_test(400, 400);
         }else if (e.getActionCommand().equals("Database")) {
             GUI_Database db = new GUI_Database(400, 400);
+
+
         }
 
     }
