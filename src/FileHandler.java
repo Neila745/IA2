@@ -44,7 +44,7 @@ public class FileHandler{
                 FileWriter fw = new FileWriter(fileName, append);
                 PrintWriter pw = new PrintWriter(fw)
         ) {
-            pw.println("\n" +text );
+            pw.println(text );
         }
         catch (IOException e) {
             e.printStackTrace();
