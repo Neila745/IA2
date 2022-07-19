@@ -1,16 +1,14 @@
-import java.io.*;
 import java.util.ArrayList;
 
-import java.io.IOException;
 public class Database {
     //declaring variables
-    private String filename;
+    private String fileName;
     private ArrayList <String> records;
     private int rowWidth;
     private int recordCount;
 
     public Database(String filename, int rowWidth) {
-        this.filename = filename;
+        this.fileName = filename;
         this.rowWidth = rowWidth;
         records = FileHandler.xreadFromFile(filename);
         countRecord();
@@ -35,7 +33,7 @@ public class Database {
     }
     public String getRecord(int rowNumber) {
 
-        return FileHandler.readLineAt(filename, rowNumber * (rowWidth+1));
+        return FileHandler.readLineAt(fileName, rowNumber * (rowWidth+1));
     }
 
    public boolean findQuestion(String data) {
@@ -43,7 +41,7 @@ public class Database {
         int counter= 0;
         while (!found && counter<records.size()) {
             Question q = new Question(records.get(counter));
-            if (q.getText().equals(data)) {//TODO: COMMA NEEDED + NOT ALREADY THERE
+            if (q.getText().equals(data)) {
                 found = true;
                 GUI_Error_Database ed = new GUI_Error_Database();
             }
@@ -54,7 +52,7 @@ public class Database {
 
     public void addRecord(String topic, String data, int marks) {
         if (findQuestion(data) == false){
-            FileHandler.xwriteToFile(filename,  topic + ", " + data + ", " + marks ,  true );
+            FileHandler.xwriteToFile(fileName,  topic + ", " + data + ", " + marks ,  true );
             records.add(topic + ", " + data + ", " + marks );
         }
     }

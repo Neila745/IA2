@@ -2,7 +2,6 @@ public class Question{
     private int marks;
     private String questionText;
     private String topic;
-    //MARKSCHEME?
 
     public Question(int marks, String questionText, String topic){
         this.marks= marks;
@@ -25,12 +24,8 @@ public class Question{
     public String getTopic(){
         return topic;
     }
-
     public String getText(){
-
         return questionText;
     }
-
-
 }
 

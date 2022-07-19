@@ -16,8 +16,8 @@ public class GUI_Database extends JFrame implements ActionListener {
     private JButton button2;
     private JButton button3;
     private JButton button5;
-    private JButton Buttonf;
-    private JButton Buttonh;
+    private JButton buttonF;
+    private JButton buttonH;
     private JTextArea databaseText;
 
 
@@ -53,14 +53,14 @@ public class GUI_Database extends JFrame implements ActionListener {
         button1.setBounds(10, 330, 100, 40);
         button1.addActionListener(this);
         frame.getContentPane().add(button1);
-        Buttonf = new JButton("DATA");
-        Buttonf.setBounds(10, 500, 100, 40);
-        Buttonf.addActionListener(this);
-        frame.getContentPane().add(Buttonf);
-        Buttonh = new JButton("Reload");
-        Buttonh.setBounds(10, 400, 100, 40);
-        Buttonh.addActionListener(this);
-        frame.getContentPane().add(Buttonh);
+        buttonF = new JButton("DATA");
+        buttonF.setBounds(10, 500, 100, 40);
+        buttonF.addActionListener(this);
+        frame.getContentPane().add(buttonF);
+        buttonH = new JButton("Reload");
+        buttonH.setBounds(10, 400, 100, 40);
+        buttonH.addActionListener(this);
+        frame.getContentPane().add(buttonH);
         button2 = new JButton("Close");
         button2.setBounds(150, 330, 100, 40);
         button2.addActionListener(this);
@@ -77,8 +77,6 @@ public class GUI_Database extends JFrame implements ActionListener {
         databaseText.setBounds(400, 50, 400, 500);
         frame.getContentPane().add(databaseText);
         frame.setVisible(true);
-
-
     }
 
 
@@ -148,4 +146,5 @@ public class GUI_Database extends JFrame implements ActionListener {
             //GUI_Database db = new GUI_Database(400, 400);
         }
     }
+
 }

@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.ArrayList;
-import java.util.List;public class QuestionSet{
+
+public class QuestionSet{
     public static ArrayList <Question> questions;
 
     public QuestionSet(Database db, String topic, int minMarks, int maxMarks){

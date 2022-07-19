@@ -1,9 +1,3 @@
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-
 public class User {
     private String name;
     private String password;

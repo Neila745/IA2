@@ -1,9 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+// Declaration of object of JButton class.
 
 class GUI_Error_Database extends JFrame implements ActionListener {
-    // Declaration of object of JButton class.
     private JFrame frame;
     private JButton button1;
     private JLabel label;

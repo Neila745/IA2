@@ -14,6 +14,7 @@ public class Grouping{
     public String maxMarksInput;
     public String topic;
     public String question;
+
     //ArrayList<String> binary = new ArrayList<>();
     //ArrayList<String> topics = new ArrayList<>();
     //ArrayList<String> questions = new ArrayList<>();
