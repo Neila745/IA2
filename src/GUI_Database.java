@@ -115,9 +115,15 @@ public class GUI_Database extends JFrame implements ActionListener {
     }*/
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("Add Q")) {//todo: grey out button
+        if (e.getActionCommand().equals("Add Q")) {                     //todo: grey out button
             questions();
 
+        }else if (e.getActionCommand().equals("Reload")){
+            displayDatabase("input.txt");
+        } else if (e.getActionCommand().equals("Home Page")) {
+            GUI_test gt = new GUI_test(400, 400);
+        }else if (e.getActionCommand().equals("Database")) {
+            //GUI_Database db = new GUI_Database(400, 400);
         }else if (e.getActionCommand().equals("Close")) {
             questionText.setText("");
             marksText.setText("");
@@ -138,12 +144,6 @@ public class GUI_Database extends JFrame implements ActionListener {
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
-        } else if (e.getActionCommand().equals("Reload")){
-            displayDatabase("input.txt");
-        } else if (e.getActionCommand().equals("Home Page")) {
-            GUI_test gt = new GUI_test(400, 400);
-        }else if (e.getActionCommand().equals("Database")) {
-            //GUI_Database db = new GUI_Database(400, 400);
         }
     }
 

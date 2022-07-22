@@ -21,7 +21,6 @@ public class QuestionSet{
     public String getText() {
         String allQuestions= "";
         for (int i = 0; i < questions.size(); i++) {
-            System.out.println(questions.get(i).getText());
             allQuestions = allQuestions + questions.get(i).getText() + "\n";
         }
         return allQuestions;
